@@ -1,6 +1,7 @@
 # IU_Project_Yash-Manohar-Chaudhari
 ## ABSTRACT
 
+
 Companies receive hundreds of resumes for a single available post in today’s competitive market, which makes the manual process of resume shortlisting feel like a laborious and time-consuming procedure. Recruiters may sometimes overlook qualified candidates due to human bias and fatigue. To solve this issue, this project aims to develop an AI-based intelligent system for resume shortlisting using Natural Language Processing (NLP).
 This system will automatically extract information from the resumes such as qualifications, work experience and skills and compare it with the requirements mentioned in the job description. We will be using an NLP model such as Sentence-BERT(S-BERT). This system will analyze and match the similarity between the candidates resume and job description and based on this result it will rank the candidates based on relevance rather than just keyword matching.
 The aim of building this intelligent system is to make the hiring process automated and simple, increase accuracy and minimize errors in candidate selection. The outcome of this project is an efficient and user-friendly tool to help the HR department in finding the best candidate quickly and objectively, saving time and upgrading the hiring process.
