@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Resume Selector</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        .card { background: white; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; }
+        .content { padding: 40px; }
+        .form-group { margin-bottom: 25px; }
+        label { display: block; font-weight: 600; margin-bottom: 8px; color: #333; }
+        textarea { width: 100%; height: 120px; padding: 15px; border: 2px solid #e1e5e9; border-radius: 8px; }
+        input[type="file"] { width: 100%; padding: 15px; border: 2px dashed #667eea; border-radius: 8px; background: #f8f9ff; }
+        button { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px 30px; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; width: 100%; }
+        button:disabled { background: #ccc; }
+        .success { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 25px; border-radius: 10px; text-align: center; margin-top: 20px; }
+        .error { background: #ff6b6b; color: white; padding: 20px; border-radius: 8px; text-align: center; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel">
+        const { useState } = React;
+        
+        function App() {
+            const [jobDescription, setJobDescription] = useState('');
+            const [files, setFiles] = useState([]);
+            const [loading, setLoading] = useState(false);
+            const [result, setResult] = useState(null);
+            const [error, setError] = useState('');
+            
+            const handleSubmit = async (e) => {
+                e.preventDefault();
+                
+                if (!jobDescription.trim()) {
+                    setError('Please enter a job description');
+                    return;
+                }
+                
+                if (files.length < 2) {
+                    setError('Please select at least 2 resume files');
+                    return;
+                }
+                
+                setLoading(true);
+                setError('');
+                setResult(null);
+                
+                const formData = new FormData();
+                formData.append('job_description', jobDescription);
+                
+                Array.from(files).forEach(file => {
+                    formData.append('files', file);
+                });
+                
+                try {
+                    const response = await fetch('http://127.0.0.1:5000/api/select', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (data.status === 'success') {
+                        setResult(data);
+                    } else {
+                        setError(data.message);
+                    }
+                } catch (err) {
+                    setError('Connection error. Make sure backend is running.');
+                } finally {
+                    setLoading(false);
+                }
+            };
+            
+            return (
+                <div className="container">
+                    <div className="card">
+                        <div className="header">
+                            <h1>Resume Selector</h1>
+                            <p>Find the best matching resume using keyword analysis</p>
+                        </div>
+                        <div className="content">
+                            <form onSubmit={handleSubmit}>
+                                <div className="form-group">
+                                    <label>Job Description</label>
+                                    <textarea
+                                        value={jobDescription}
+                                        onChange={(e) => setJobDescription(e.target.value)}
+                                        placeholder="Enter job description here..."
+                                        required
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label>Upload Resume Files</label>
+                                    <input
+                                        type="file"
+                                        multiple
+                                        accept=".pdf,.docx"
+                                        onChange={(e) => setFiles(e.target.files)}
+                                        required
+                                    />
+                                    <small>Select 2 or more resume files (PDF or DOCX)</small>
+                                </div>
+                                <button type="submit" disabled={loading}>
+                                    {loading ? 'Analyzing...' : 'Find Best Resume'}
+                                </button>
+                            </form>
+                            
+                            {error && (
+                                <div className="error">
+                                    <strong>❌ Error:</strong> {error}
+                                </div>
+                            )}
+                            
+                            {result && (
+                                <div className="success">
+                                    <h3>🏆 Best Match Found!</h3>
+                                    <div style={{fontSize: '1.3em', margin: '10px 0'}}>
+                                        📄 {result.best_resume.name}
+                                    </div>
+                                    <div style={{fontSize: '1.2em', margin: '10px 0'}}>
+                                        📊 Match Score: {(result.best_resume.similarity_score * 100).toFixed(1)}%
+                                    </div>
+                                    <p>Selected from {result.total_resumes} candidates</p>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+        
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
