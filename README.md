@@ -47,6 +47,22 @@ To build a scalable system that can handle large datasets and adapt to different
 | **Version Control**     | Git                        | Version control                                                                        |
 |                        | GitHub                     | Repository hosting, issue tracking, and collaboration                                   |
 
+## Project Risks
+1. Data Quality Risk:
+The performance of NLP models like Sentence-BERT is heavily dependent on the quality and consistency of training and testing data. Inaccurate, incomplete, or biased data can lead to unreliable candidate rankings.
+
+2. Model Drift Risk:
+Over time, as job requirements and resume formats evolve, the model’s accuracy may degrade unless it is regularly retrained with updated datasets.
+
+3. Security and Privacy Risk:
+Resumes often contain sensitive personal information. Inadequate encryption or poor access control could expose candidate data to unauthorized users.
+
+4. Scalability Risk:
+The system may face processing delays or failures when handling large volumes of resumes simultaneously if server resources or APIs are not optimized.
+
+5. User Adoption Risk:
+HR personnel may hesitate to adopt the AI system due to lack of trust or understanding of its recommendations, highlighting the need for model transparency and explainability.
+
 ## Project Status
 1. Conception Phase - Done
 2. Development Phase - Under Progress
