@@ -27,10 +27,7 @@ To design a ranking algorithm that scores and orders candidates based on their r
 To significantly reduce the time and effort spent on initial candidate screening, enabling HR departments to focus on strategic decision-making.  
 
 ### 7. User-Friendly Interface  
-To provide a simple and intuitive interface for HR professionals to upload job descriptions and resumes, view rankings, and access shortlisting results easily.  
-
-### 8. Scalability and Adaptability  
-To build a scalable system that can handle large datasets and adapt to different job roles, industries, and resume formats.  
+To provide a simple and intuitive interface for HR professionals to upload job descriptions and resumes, view rankings, and access shortlisting results easily.   
 
 
 ## 🛠️ Tech Stack
@@ -65,4 +62,5 @@ HR personnel may hesitate to adopt the AI system due to lack of trust or underst
 
 ## Project Status
 1. Conception Phase - Done
-2. Development Phase - Under Progress
+2. Development Phase - Done
+3. Finalization Phase - Under Progress
