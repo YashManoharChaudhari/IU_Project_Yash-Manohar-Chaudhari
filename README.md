@@ -64,3 +64,5 @@ HR personnel may hesitate to adopt the AI system due to lack of trust or underst
 1. Conception Phase - Done
 2. Development Phase - Done
 3. Finalization Phase - Under Progress
+2. Development Phase - Done
+3. Finalization Phase - Under Progress
