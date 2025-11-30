@@ -61,6 +61,7 @@ The system may face processing delays or failures when handling large volumes of
 HR personnel may hesitate to adopt the AI system due to lack of trust or understanding of its recommendations, highlighting the need for model transparency and explainability.
 
 ## Ethical Considerations
+
 	1. Developed an AI-powered resume shortlisting system using NLP to automate and improve hiring efficiency.
 	2. Extracts candidate details such as skills, qualifications, and experience from resumes and compares them with job requirements.
 	3. Utilizes Sentence-BERT (S-BERT) to measure semantic similarity, ranking candidates based on meaning rather than simple keyword matching.
