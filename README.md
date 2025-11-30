@@ -68,6 +68,23 @@ HR personnel may hesitate to adopt the AI system due to lack of trust or underst
 	4. Provides HR teams with an interactive React.js web interface to upload resumes and view ranked candidates.
 	5. Aims to deliver a scalable, accurate, and fair shortlisting solution that reduces manual effort, minimizes human bias, and enhances recruitment outcomes.
 
+# How to Run?
+## Quick Start
+1. Clone and Setup
+'''git clone https://github.com/YashManoharChaudhari/IU_Project_Yash-Manohar-Chaudhari'''
+cd IU_Project_Yash-Manohar-Chaudhari/I-Based Intelligent System for Resume Shortlisting using NLP model
+
+2. Backend Setup
+'''pip install -r requirements.txt'''
+'''cd backend'''
+'''python3 -m uvicorn main:app --host 127.0.0.1 --port 8002'''
+
+3. Frontend Setup
+open new terminal
+'''npm install'''
+'''npm run dev'''
+
+
 ## Project Status
 1. Conception Phase - Done
 2. Development Phase - Done
