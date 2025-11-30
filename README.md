@@ -61,11 +61,11 @@ The system may face processing delays or failures when handling large volumes of
 HR personnel may hesitate to adopt the AI system due to lack of trust or understanding of its recommendations, highlighting the need for model transparency and explainability.
 
 ## Ethical Considerations
-	•	Developed an AI-powered resume shortlisting system using NLP to automate and improve hiring efficiency.
-	•	Extracts candidate details such as skills, qualifications, and experience from resumes and compares them with job requirements.
-	•	Utilizes Sentence-BERT (S-BERT) to measure semantic similarity, ranking candidates based on meaning rather than simple keyword matching.
-	•	Provides HR teams with an interactive React.js web interface to upload resumes and view ranked candidates.
-	•	Aims to deliver a scalable, accurate, and fair shortlisting solution that reduces manual effort, minimizes human bias, and enhances recruitment outcomes.
+	1. Developed an AI-powered resume shortlisting system using NLP to automate and improve hiring efficiency.
+	2. Extracts candidate details such as skills, qualifications, and experience from resumes and compares them with job requirements.
+	3. Utilizes Sentence-BERT (S-BERT) to measure semantic similarity, ranking candidates based on meaning rather than simple keyword matching.
+	4. Provides HR teams with an interactive React.js web interface to upload resumes and view ranked candidates.
+	5. Aims to deliver a scalable, accurate, and fair shortlisting solution that reduces manual effort, minimizes human bias, and enhances recruitment outcomes.
 
 ## Project Status
 1. Conception Phase - Done
